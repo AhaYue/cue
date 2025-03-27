@@ -1,0 +1,17 @@
+{
+    "HomePage": {
+      "title": "你好 世界",
+      "about": "关于"
+    },
+    "Navbar": {
+      "home": "首页",
+      "products": "产品",
+      "resources": "资源",
+      "pricing": "定价",
+
+      "news": "新闻"
+    },
+    "News": {
+      "title": "新鲜事"
+    }
+  }
