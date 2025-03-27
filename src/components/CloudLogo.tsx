@@ -19,7 +19,7 @@ const cloudLogoArray = [
   },
   {
     name: "Cloud Logo",
-    image: "/images/cloud-logo/Vs_Code.svg",
+    image: "/images/cloud-logo/vscode.svg",
   },
   {
     name: "Cloud Logo",
