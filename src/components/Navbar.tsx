@@ -151,7 +151,7 @@ const Navbar = ({
             <a href={logo.url} className="flex items-center gap-2">
               <Image
                 src={logo.src}
-                className="h-full object-contain "
+                className="h-full w-full object-contain "
                 style={{ filter: "contrast(999%) grayscale(100%)" }}
                 alt={logo.alt}
                 width={74}
