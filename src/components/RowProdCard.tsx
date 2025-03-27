@@ -40,7 +40,7 @@ export default function RowProdCard({
           direction === "vertical" ? "flex-col" : "flex-row"
         )}
       >
-        <CardContent className="flex-shrink flex-grow  flex justify-center items-center">
+        <CardContent className="flex-shrink flex-grow  flex justify-center items-center h-[360px] md:h-auto">
           <Image
             src={product.image}
             alt="Placeholder"
@@ -54,7 +54,7 @@ export default function RowProdCard({
             alt="Placeholder"
             width={200}
             height={400}
-            className="object-contain w-full h-full  block md:hidden  max-h-[400px]"
+            className="object-contain w-full   block md:hidden  h-[360px]"
           />
         </CardContent>
 
