@@ -35,7 +35,7 @@ const StoryGallery = ({
       summary:
         "Create stunning user interfaces with our comprehensive design system.",
       url: "#",
-      image: "placeholder-dark.svg",
+      image: "/images/placeholder-dark.svg",
     },
     {
       id: "item-2",
@@ -43,7 +43,7 @@ const StoryGallery = ({
       summary:
         "Powerful image recognition and processing capabilities that allow AI systems to analyze, understand, and interpret visual information from the world.",
       url: "#",
-      image: "placeholder-dark.svg",
+      image: "/images/placeholder-dark.svg",
     },
     {
       id: "item-3",
@@ -51,7 +51,7 @@ const StoryGallery = ({
       summary:
         "Self-improving algorithms that learn from data patterns to automate complex tasks and make intelligent decisions with minimal human intervention.",
       url: "#",
-      image: "placeholder-dark.svg",
+      image: "/images/placeholder-dark.svg",
     },
     {
       id: "item-4",
@@ -59,7 +59,7 @@ const StoryGallery = ({
       summary:
         "Advanced forecasting capabilities that analyze historical data to predict future trends and outcomes, helping businesses make data-driven decisions.",
       url: "#",
-      image: "placeholder-dark.svg",
+      image: "/images/placeholder-dark.svg",
     },
     {
       id: "item-5",
