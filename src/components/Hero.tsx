@@ -227,7 +227,7 @@ Hero32Props) => {
                   className="absolute  opacity-20 -z-10 blur-[20px] top-0 left-[-12%] w-full h-full scale-200 user-select-none pointer-events-none"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 0.6 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
+                  transition={{ duration: 1, delay: 0.1 }}
                 >
                   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -247,7 +247,7 @@ Hero32Props) => {
                     <motion.p
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      transition={{ duration: 1.2, delay: 0.1 }}
                       key={index}
                       className=""
                     >
@@ -260,7 +260,7 @@ Hero32Props) => {
                 <motion.p
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
+                  transition={{ duration: 1.2, delay: 0.1 }}
                   className="font-semibold text-center md:text-left"
                 >
                   {description}
@@ -268,7 +268,7 @@ Hero32Props) => {
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
+                  transition={{ duration: 1.2, delay: 0.1 }}
                   className="text-center md:text-left"
                 >
                   <Button asChild size="lg" className="mt-10">
@@ -282,7 +282,7 @@ Hero32Props) => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.0 }}
+              transition={{ duration: 1.2, delay: 0.1 }}
               className="box"
             >
               <Image
