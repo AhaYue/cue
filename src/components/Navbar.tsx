@@ -1,6 +1,10 @@
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+"use client";
+import { Book, Menu, Sunset, Trees, Zap, Languages } from "lucide-react";
 // import LanguageToggle from "@/components/LanguageToggle";
+
 import { useTranslations } from "next-intl";
+
+
 
 import Image from "next/image";
 import {
@@ -17,6 +21,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
@@ -32,6 +37,8 @@ interface MenuItem {
   description?: string;
   icon?: React.ReactNode;
   items?: MenuItem[];
+  type?: string;
+  content?: string | React.ReactNode;
 }
 
 interface NavbarProps {
@@ -54,6 +61,8 @@ interface NavbarProps {
   };
 }
 
+
+
 const Navbar = ({
   logo = {
     url: "/",
@@ -67,30 +76,66 @@ const Navbar = ({
     {
       title: "products",
       url: "#",
+      type: "products",
       items: [
         {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
-          icon: <Book className="size-5 shrink-0" />,
+          title: "Cue",
+          url: "#",
+          content: (
+            <div className="w-4/5 max-w-[600px]  shrink-0 overflow-clip rounded-tl-lg rounded-bl-lg">
+              <div className="flex flex-row justify-between">
+                <div className="flex  h-full rounded-lg border border-input bg-background p-0 hover:bg-transparent">
+                  <div className="w-1/2">
+                    <Image
+                      alt="Placeholder image"
+                      width={1000}
+                      height={1000}
+                      className="h-full w-full object-cover object-center"
+                      src="/images/P 790 Studio Hero Image.jpg"
+                    />
+                  </div>
+                  <div className="flex w-1/2 flex-col p-5 xl:p-8">
+                    <div className="mb-8 text-xs tracking-widest text-muted-foreground uppercase">
+                      For user persona
+                    </div>
+                    <div className="mt-auto">
+                      <div className="mb-4 text-xl">
+                        Call to action for user persona
+                      </div>
+                      <div className="text-sm font-normal text-muted-foreground">
+                        Etiam ornare venenatis neque, sit amet suscipit diam
+                        pulvinar a.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ),
+        },
+        {
+          title: "Gloves",
+          content: "Gloves' Content",
+
           url: "#",
         },
         {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
-          icon: <Trees className="size-5 shrink-0" />,
+          title: "Table",
+          content: "Table's Content",
+
           url: "#",
         },
         {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
-          icon: <Sunset className="size-5 shrink-0" />,
+          title: "Shafts",
+          content: "Shafts' Content",
+
           url: "#",
         },
+
         {
-          title: "Support",
-          description:
-            "Get in touch with our support team or visit our community forums",
-          icon: <Zap className="size-5 shrink-0" />,
+          title: "Chalk",
+          content: "Chalk's Content",
+
           url: "#",
         },
       ],
@@ -134,54 +179,56 @@ const Navbar = ({
       url: "/news",
     },
   ],
-  // auth = {
-  //   login: { title: "Login", url: "#" },
-  //   signup: { title: "Sign up", url: "#" },
-  // },
-}: NavbarProps) => {
+}: // auth = {
+//   login: { title: "Login", url: "#" },
+//   signup: { title: "Sign up", url: "#" },
+// },
+NavbarProps) => {
   const t = useTranslations("Navbar");
 
   return (
     <section className="py-3">
-      <div className="container">
+      <div className="container flex">
         {/* Desktop Menu */}
-        <nav className="hidden justify-between lg:flex">
-          <div className="flex items-center  w-full gap-6">
-            {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
-              <Image
-                src={logo.src}
-                className="h-full w-full object-contain "
-                style={{ filter: "contrast(999%) grayscale(100%)" }}
-                alt={logo.alt}
-                width={74}
-                height={32}
-              />
-              {/* <span className="text-lg font-semibold tracking-tighter">
+
+        <NavigationMenu className="w-full max-w-none justify-between hidden lg:flex">
+          <a href={logo.url} className="flex items-center gap-2  ">
+            <Image
+              src={logo.src}
+              className="h-full w-full object-contain max-h-8"
+              style={{ filter: "contrast(999%) grayscale(100%)" }}
+              alt={logo.alt}
+              width={74}
+              height={32}
+            />
+            {/* <span className="text-lg font-semibold tracking-tighter">
                 {logo.title}
               </span> */}
-            </a>
+          </a>
 
-            <div className="flex-grow-1 w-full"></div>
-            <div className="flex items-center">
-              <NavigationMenu>
-                <NavigationMenuList>
-                  {menu.map((item) => renderMenuItem(item, t(`${item.title}`)))}
-                </NavigationMenuList>
-              </NavigationMenu>
-            </div>
-          </div>
-          <div className="flex gap-2">
+          <NavigationMenuList>
+            {menu.map((item) => renderMenuItem(item, t(`${item.title}`)))}
+          </NavigationMenuList>
+
+          <div className="flex flex-row gap-2">
+          
+              <Button variant="outline" size="default">
+                <Languages className="size-4" /> en
+              </Button> 
     
-            {/* <LanguageToggle /> */}
           </div>
-        </nav>
+
+          <NavigationMenuViewport className="w-full"></NavigationMenuViewport>
+        </NavigationMenu>
 
         {/* Mobile Menu */}
-        <div className="block lg:hidden">
+        <div className="block lg:hidden w-full">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href={logo.url} className="flex justify-start items-center  h-full gap-2">
+            <a
+              href={logo.url}
+              className="flex justify-start items-center  h-full gap-2"
+            >
               <Image
                 src={logo.src}
                 className="max-h-8 object-cover h-full block"
@@ -199,7 +246,10 @@ const Navbar = ({
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>
-                    <a href={logo.url} className="flex items-center h-full gap-2">
+                    <a
+                      href={logo.url}
+                      className="flex items-center h-full gap-2"
+                    >
                       <Image
                         src={logo.src}
                         className="max-h-8 object-cover"
@@ -222,7 +272,6 @@ const Navbar = ({
                   </Accordion>
 
                   <div className="flex flex-col gap-3">
-                  
                     {/* <LanguageToggle /> */}
                   </div>
                 </div>
@@ -236,13 +285,53 @@ const Navbar = ({
 };
 
 const renderMenuItem = (item: MenuItem, lable: string) => {
+  if (item?.type === "products") {
+    return (
+      <NavigationMenuItem key={item.title}>
+        <NavigationMenuTrigger>{lable}</NavigationMenuTrigger>
+        <NavigationMenuContent className="bg-popover text-popover-foreground min-w-[calc(100vw-12px)] p-4 lg:p-8 ">
+          <div className="flex justify-start items-stretch">
+            <div className="pr-4 border-r ">
+              {item.items?.map((subItem, index) => (
+                <NavigationMenuLink asChild key={subItem.title}>
+                  <SubMenuLinkTab item={subItem} index={index} />
+                </NavigationMenuLink>
+              ))}
+            </div>
+
+            <div className="px-8  w-full">
+              <div className="flex flex-row gap-4">
+                {item.items?.map((subItem, index) => (
+                  <div
+                    className="  top-0 left-0 w-full h-full"
+                    key={`${index}-content`}
+                    style={{
+                      opacity: index === 0 ? 1 : 0,
+                      zIndex: index === 0 ? 10 : 0,
+                      display: index === 0 ? "flex" : "none",
+                    }}
+                  >
+                    {" "}
+                    {subItem.content}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div></div>
+          </div>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+    );
+  }
+
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title}>
         <NavigationMenuTrigger>{lable}</NavigationMenuTrigger>
-        <NavigationMenuContent className="bg-popover text-popover-foreground">
+        <NavigationMenuContent className="bg-popover text-popover-foreground  !w-80  p-4 lg:p-8 ">
           {item.items.map((subItem) => (
-            <NavigationMenuLink asChild key={subItem.title} className="w-80">
+            <NavigationMenuLink asChild key={subItem.title} className="">
               <SubMenuLink item={subItem} />
             </NavigationMenuLink>
           ))}
@@ -292,7 +381,30 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
       className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground"
       href={item.url}
     >
-      <div className="text-foreground">{item.icon}</div>
+      {item.icon && <div className="text-foreground">{item.icon}</div>}
+      <div>
+        <div className="text-sm font-semibold">{item.title}</div>
+        {item.description && (
+          <p className="text-sm leading-snug text-muted-foreground">
+            {item.description}
+          </p>
+        )}
+      </div>
+    </a>
+  );
+};
+
+const SubMenuLinkTab = ({ item, index }: { item: MenuItem; index: number }) => {
+  return (
+    <a
+      className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground w-40"
+      href={item.url}
+      data-index={index}
+      onMouseEnter={() => {
+        console.log("onMouseEnter", index);
+      }}
+    >
+      {item.icon && <div className="text-foreground">{item.icon}</div>}
       <div>
         <div className="text-sm font-semibold">{item.title}</div>
         {item.description && (
